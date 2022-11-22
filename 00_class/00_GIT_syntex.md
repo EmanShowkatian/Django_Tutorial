@@ -10,3 +10,9 @@ style="float: center; margin-right: 20px;"/>
 
 <img src='./images/git-add-commit.png' 
 style="float: center; margin-right: 20px;"/>
+
+
+**<code>git fetch</code>** vs **<code>git pull</code>**
+
+<img src='./images/fetch vs pull.jpg' 
+style="float: center; margin-right: 20px;"/>
