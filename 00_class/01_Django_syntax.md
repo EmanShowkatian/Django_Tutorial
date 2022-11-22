@@ -75,7 +75,7 @@ Now you can add <code>admin</code> at the end of the local host link and see the
 
 <br></br>
 
-<img src='./01_django-flow.png' 
+<img src='./images/django-flow.png' 
 style="float: center; margin-right: 20px;"/>
 
 
