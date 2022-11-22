@@ -9,6 +9,8 @@
 - See differences between head & your changes in stage are: **<code>git diff --staged</code>**
 - return from stages to modifing area=== stage undo: **<code>git reset filename</code>**
 - undo changes of specific file== modifing undo: **<code>git checkout -- filename</code>**
+- See available branches and your current branch: **<code>git branch</code>**
+- Changing head or transfering between branches: **<code>git checkout branch-name</code>**
 - 
 - 
 
