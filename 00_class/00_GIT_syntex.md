@@ -6,6 +6,11 @@
 - Accepting all changes and transfer it to local or remote repository: **<code>git commit -a -m "message"</code>**
 - See commit history: **<code>git log</code>**
 - See differences between head & your changes: **<code>git diff head</code>**
+- See differences between head & your changes in stage are: **<code>git diff --staged</code>**
+- return from stages to modifing area=== stage undo: **<code>git reset filename</code>**
+- undo changes of specific file== modifing undo: **<code>git checkout -- filename</code>**
+- 
+- 
 
 ***
 ## **Workflow of GIT**
