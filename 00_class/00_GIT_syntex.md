@@ -20,6 +20,7 @@ style="float: center; margin-right: 20px;"/>
 - Changing head or transfering between branches: **<code>git checkout branch-name</code>**
 - Merging  example branch with main (**you should checkout at main first**) : **<code>git merge branch-name</code>**
 - Deleting old branches after merge: **<code>git branch -d branch-name</code>**
+- Deleting file using GIT: **<code>git rm filename</code>**
 - 
 
 ***
