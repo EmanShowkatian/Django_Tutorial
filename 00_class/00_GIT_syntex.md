@@ -24,7 +24,7 @@ style="float: center; margin-right: 20px;"/>
 - Adding new remote repository: **<code>git remote add [name] [url]</code>**
 - Getting and **knowing** latest changes from remote repository and **NOT Merging** them with local repository: **<code>git fetch</code>**
 - Getting latest changes from remote repository and **Merging** them with local repository: **<code>git pull</code>**
-- Transfering latest changes from local repository to remote repository: **<code>git push</code>**
+- Transfering latest changes from local repository to remote repository: **<code>git push -u origin branch-name</code>**
 - 
 
 ***
