@@ -10,6 +10,7 @@
 - return from stages to modifing area=== stage undo: **<code>git reset filename</code>**
 - undo changes of specific file== modifing undo: **<code>git checkout -- filename</code>**
 - See available branches and your current branch: **<code>git branch</code>**
+- Create new branch in GIT: **<code>git branch branch-name</code>**
 - Changing head or transfering between branches: **<code>git checkout branch-name</code>**
 - 
 - 
