@@ -78,6 +78,10 @@ style="float: center; margin-right: 20px;"/>
 - See correspond commit of a tag: <code>git show tag-name</code>
 
 
+- Push commits with corresponding tags: <code>git push -u origin main --tags</code>
+
+
+
 ***
 ## **Workflow of GIT**
 
