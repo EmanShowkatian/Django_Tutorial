@@ -1,3 +1,9 @@
+# GIT CheetSheet
+
+<img src='./images/00_GITSheet.png' 
+style="float: center; margin-right: 20px;"/>
+
+***
 # GIT by Jadi
 
 - Converting a directory to Git repository using: **<code>git init</code>**
