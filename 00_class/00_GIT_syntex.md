@@ -81,6 +81,9 @@ style="float: center; margin-right: 20px;"/>
 - Push commits with corresponding tags: <code>git push -u origin main --tags</code>
 
 
+- Push only tags: <code>git push origin --tags</code>
+
+
 
 ***
 ## **Workflow of GIT**
