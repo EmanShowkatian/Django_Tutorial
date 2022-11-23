@@ -163,4 +163,72 @@ Then, run <code>python ./manage.py runserver</code> to see your view :)
 
 # Course #3 -> Continue to View, Json & More!
 
+We want to add seperate urls for each applicaion:
+
+- First, create <code>urls.py</code> in your application folder (etc: <code>blog</code>)
+
+```
+from django.urls import path
+from .views import home
+
+urlpatterns = [
+    path("", home)
+]
+```
+- Second, in <code>urls.py</code> in your project folder (etc: <code>tmp_project</code>):
+
+```
+from django.contrib import admin
+from django.urls import path, include <------> **I add it**
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", include('blog.urls')) <------> **I add it**
+]
+```
+
+- This <code>""</code> means root path in<code>path("", include('blog.urls'))</code>
+
+- Instead of root directory of your web page, you can write for instance:<code>path("blog/", include('blog.urls'))</code>. Now, Just like admin page, you have a blog page..Hoooray :)
+
+- In <code>urls.py</code> in <code>blog</code> application define these variables to prevent hard encoding!
+
+```
+from django.urls import path
+from .views import home
+
+app_name='blog'  <------> **I add it**
+urlpatterns = [
+    path("", home, name='home')   <------> **I add it** name='home'
+]
+```
+
+- We learned how to return HttpResponse as a **request** in <code>views.py</code>, Now we want to return JsonResponse as a **request** in <code>views.py</code>:
+
+- This is how your updated <code>views.py</code> looks like:
+
+```
+from django.shortcuts import render
+from django.http import HttpResponse, JsonResponse <------> **I add it**
+
+# Create your views here.
+def home(request):
+  return HttpResponse("Hello, World! Hello, Django!")
+
+def api(request): <------> **I add it**
+  return(JsonResponse({"title": "Hello Json"}))
+```
+- This is how your updated <code>urls.py</code> looks like:
+
+```
+from django.urls import path
+from .views import home, api <------> **I add it**
+
+app_name='blog'
+urlpatterns = [
+    path("", home, name='home'),
+    path("api/", api, name='api'),  <------> **I add it**
+]
+```
+
 
