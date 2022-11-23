@@ -23,8 +23,8 @@ style="float: center; margin-right: 20px;"/>
 - Deleting file using GIT: **<code>git rm filename</code>**
 - Adding new remote repository: **<code>git remote add [name] [url]</code>**
 - Getting and **knowing** latest changes from remote repository and **NOT Merging** them with local repository: **<code>git fetch</code>**
-- Getting latest changes from remote repository and **Merging** them with local repository: **<code>git pull</code>**
-- Transfering latest changes from local repository to remote repository: **<code>git push -u origin branch-name</code>**
+- Getting latest changes from remote repository and **Merging** them with local repository: **<code>git pull</code>** or **<code>git pull origin branch-name</code>**
+- Transfering latest changes from local repository to remote repository: **<code>git push -u origin branch-name</code>** -u flage will be used for the first time and git will remember to push your <code>branch-name</code> to <code>origin</code> and you can simply write <code>git push</code> after that :)
 - 
 
 ***
@@ -40,7 +40,7 @@ style="float: center; margin-right: 20px;"/>
 ***
 ## **What is head in GIT**
 
-head is last your commit!
+##### **head is last your commit!**
 
 <img src='./images/git head.png' 
 style="float: center; margin-right: 20px;"/>
