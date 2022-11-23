@@ -12,7 +12,8 @@
 - See available branches and your current branch: **<code>git branch</code>**
 - Create new branch in GIT: **<code>git branch branch-name</code>**
 - Changing head or transfering between branches: **<code>git checkout branch-name</code>**
-- 
+- Merging  example branch with main (**you should checkout at main first**) : **<code>git merge branch-name</code>**
+- Deleting old branches after merge: **<code>git branch -d branch-name</code>**
 - 
 
 ***
