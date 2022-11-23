@@ -33,6 +33,7 @@ style="float: center; margin-right: 20px;"/>
 <img src='./images/git-add-commit.png' 
 style="float: center; margin-right: 20px;"/>
 
+***
 <img src='./images/git flow.png' 
 style="float: center; margin-right: 20px;"/>
 
