@@ -91,7 +91,7 @@ style="float: center; margin-right: 20px;"/>
 Now, let's create an application called **blog**:
 
 - Activate your virtual env
-<pre><code>python ./manage.py startapp</code></pre>
+<pre><code>python ./manage.py startapp blog</code></pre>
 - Use <code>ls</code> to see the application directoy added 😊
 - Use <code>tree</code> to see the directory of **blog** application ✋
 ```
@@ -162,3 +162,5 @@ Then, run <code>python ./manage.py runserver</code> to see your view :)
 ***
 
 # Course #3 -> Continue to View, Json & More!
+
+
