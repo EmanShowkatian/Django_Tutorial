@@ -345,8 +345,75 @@ def home(request):
 </body>
 </html>
 ```
-- Note that python for loop in <code>html</code> file should be placed in <code>{% for article in articles %}</code> and end with <code>{% endfor %}
+- Note that python for loop in <code>html</code> file should be placed in <code>{% for article in articles %}</code> and end with <code>{% endfor %}</code> :)
+  
+***
+
+# Course #5 -> Start to working with models 😎
+
+- By using models you can insert data from database dynamicly instead of statically :)
+- Assume that we want to create a **Articles** panel in admin panel somthin like this:
+
+
+<img src='./images/models_01.png' 
+style="float: center; margin-right: 20px;"/>
+
+- And when you click on **Articles** you will see somthing like this
+
+
+<img src='./images/models_02.png' 
+style="float: center; margin-right: 20px;"/>
+
+##### So we want to have:
+- **Title** field
+- **Slug** field
+- **Descriptions** field
+- **Tumbnail** field for images
+- **Publish Date** sections
+- **Status** field
+
+##### Here is what we are going to Do:
+
+- First go to the <code>models.py</code> in your **Application** and:
+  
+```
+from django.db import models
+from django.utils import timezone
+# Create your models here.
+
+
+class Articles(models.Model):
+    STATUS_CHOICES = (
+        ('d', "Draft"),
+        ('p', "Published"),
+    )
+
+    titles = models.CharField(max_length=200) 
+    slug = models.SlugField(max_length=100, unique=True)
+    descriptions = models.TextField()
+    thumbnail = models.ImageField(upload_to='images')
+    publish = models.DateField(default=timezone.now)
+    created = models.DateField(auto_now_add=True)
+    updated = models.DateField(auto_now=True)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+```
+- Note that **all variables like titles, slug, etc are lower case!!!**
+- Third: <code>python manage.py makemigrations</code>
+- Forth: <code>python manage.py migrate</code>
+- Fifth: <code>python manage.py runserver</code>
+- Sixth: Go to <code>admins.py</code> and add:
+
+```
+from django.contrib import admin
+from .models import Articles <------> **I add it**
+
+# Register your models here.
+admin.site.register(Articles) <------> **I add it**
+```
+##### Now you have a Articles panel in your Blog section in Admin panel
+
+###### Note that the upload section will not work because we did not specify any path for uploading images in the django 😥
 
 ***
 
-# Course #5 -> start to working with models :)
+# Course #6 -> Uploading and Showing Media 🤗
