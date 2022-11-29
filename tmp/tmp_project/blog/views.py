@@ -9,7 +9,7 @@ def api(request):
 
     data = {
         "1": {
-            "title": "Hello Json",
+            "title": "سلام دنیا",
             "id": 10,
             "slug": "first article",
         },
