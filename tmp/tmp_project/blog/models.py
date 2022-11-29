@@ -16,3 +16,6 @@ class Articles(models.Model):
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+    
+    def __str__(self) -> str:
+        return self.titles

@@ -417,3 +417,54 @@ admin.site.register(Articles) <------> **I add it**
 ***
 
 # Course #6 -> Uploading and Showing Media 🤗
+
+- First, Create a post, upload an image and save it.
+- You will see your article will be shown as <code>Article Object</code>
+- To correct this, add string function to <code>models.py</code> in your **Application**:
+
+```
+from django.db import models
+from django.utils import timezone
+# Create your models here.
+
+
+class Articles(models.Model):
+    STATUS_CHOICES = (
+        ('d', "Draft"),
+        ('p', "Published"),
+    )
+    titles = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=100, unique=True)
+    descriptions = models.TextField()
+    thumbnail = models.ImageField(upload_to='images')
+    publish = models.DateField(default=timezone.now)
+    created = models.DateField(auto_now_add=True)
+    updated = models.DateField(auto_now=True)
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+    
+    def __str__(self) -> str: <------> **I add it**
+        return self.titles
+```
+- Then reload and you will see the title of the article will be showns as the name of the article (name of the object)
+- Now, Go to your article and click in your image that you had uploaded and you will see django may respone to you either this file does not exist or **Erorr 404**
+- At this time you can see the <code>images</code> directory added to your **project** directory
+- To Solve this problem do the following:
+1. Add these lines to <code>settings.py</code>
+   ```
+   MEDIA_URL = "/media/"
+   MEDIA_ROOT = os.path.join(BASE_DIR,'media'
+   ```
+2. Add these line to <code>urls.py</code>
+    ```
+    from django.conf import settings
+    from django.conf.urls.static import static
+
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    ```
+3. Now you can see by clicking in your article and uploaded image, you can see the image :)
+4. Morever, the <code>media/images</code> directory have been added to your **project** directory 
+
+
+***
+
+# Course #7 -> Admin Panel Settings in Django 🤠
