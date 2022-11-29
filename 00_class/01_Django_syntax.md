@@ -346,3 +346,7 @@ def home(request):
 </html>
 ```
 - Note that python for loop in <code>html</code> file should be placed in <code>{% for article in articles %}</code> and end with <code>{% endfor %}
+
+***
+
+# Course #5 -> start to working with models :)
