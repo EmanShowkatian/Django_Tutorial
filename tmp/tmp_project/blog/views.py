@@ -1,18 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 
-
-try:
-    # Fix UTF8 output issues on Windows console.
-    # Does nothing if package is not installed
-    from win_unicode_console import enable
-    enable()
-except ImportError:
-    pass
-
-# Create your views here.
-
-
 def home(request):
     return HttpResponse("Hello, World! Hello, Django!")
 
