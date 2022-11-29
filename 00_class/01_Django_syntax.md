@@ -212,11 +212,31 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse <------> **I add it**
 
 # Create your views here.
-def home(request):
-  return HttpResponse("Hello, World! Hello, Django!")
+def api(request):
 
-def api(request): <------> **I add it**
-  return(JsonResponse({"title": "Hello Json"}))
+    data = {
+        "1": {
+            "title": "سلام دنیا",
+            "id": 10,
+            "slug": "first article",
+        },
+        "2": {
+            "title": "Hello Json",
+            "id": 20,
+            "slug": "second article",
+        },
+        "3": {
+            "title": "Hello Json",
+            "id": 30,
+            "slug": "third article",
+        },
+        "4": {
+            "title": "Hello Json",
+            "id": 40,
+            "slug": "forth article",
+        },
+    }
+    return(JsonResponse(data))
 ```
 - This is how your updated <code>urls.py</code> looks like:
 
@@ -230,5 +250,99 @@ urlpatterns = [
     path("api/", api, name='api'),  <------> **I add it**
 ]
 ```
+***
 
+# Course #4 -> Render, Template and Shortcut
 
+- First remove <code>api</code> url from your app 😒
+- What is render? <code>from django.shortcuts import render</code>
+- **Shortcut** is created to work better and easier with <code>html</code> and <code>templates</code>
+- Create <code>templates/blog</code> directory in your **Application** directory and create <code>home.html</code> in this directory.
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+<h1>Hello World, This is home.html file</h1>
+<p>Username: {{username}}</p>
+<p>Age: {{age}}</p>
+<p>Job: {{job}}</p>
+
+</body>
+</html>
+```
+- Note that python variables in <code>html</code> file should be placed in <code>{{}}</code>
+- Then, Change your <code>views.py</code> in your **Application** to sth like this: 
+
+```
+from django.shortcuts import render
+
+def home(request):
+    context = {
+        "username": "Eman",
+        "age": 30,
+        "job": "programmer"
+
+    }
+    return render(request, "blog/home.html", context)
+```
+- <code>home</code> function will get three argument:
+  - <code>request</code>: HttpRequest
+  - <code>template_name</code>: template name or address: str | Sequence[str],
+  - <code>context</code>: context: Mapping[str, Any], some sort of data like a <code>dict</code> variable in the above code
+- Let's have <code>python for loop</code> in <code>html</code> file:
+- Change the <code>home</code> function to this:
+```
+def home(request):
+    context = {
+        "articles": [
+            {
+                "title": "Sth",
+                "description": "sth",
+                "img": "https://news-cdn.varzesh3.com/pictures/2022/11/29/B/nbxr114h.jpg?w=315",
+            },
+            {
+                "title": "Sth",
+                "description": "sth",
+                "img": "https://news-cdn.varzesh3.com/pictures/2022/11/29/B/nbxr114h.jpg?w=315",
+            },
+            {
+                "title": "Sth",
+                "description": "sth",
+                "img": "https://news-cdn.varzesh3.com/pictures/2022/11/29/B/nbxr114h.jpg?w=315",
+            }
+
+        ]
+    }
+    return render(request, "blog/home.html", context)
+```
+- And your <code>html</code>to this:
+
+```
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Hello World, This is home.html file</h1>
+  {% for article in articles %}
+    <article>
+      <img src="{{article.img}}" alt="article.title">
+      <h2>{{article.title}}</h2>
+      <p>{{article.description}}</p>
+    </article>
+  {% endfor %}
+
+</body>
+</html>
+```
+- Note that python for loop in <code>html</code> file should be placed in <code>{% for article in articles %}</code> and end with <code>{% endfor %}
